@@ -1,0 +1,14 @@
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\bin\Debug\net8.0\Esercizio1.exe
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\bin\Debug\net8.0\Esercizio1.deps.json
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\bin\Debug\net8.0\Esercizio1.runtimeconfig.json
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\bin\Debug\net8.0\Esercizio1.dll
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\bin\Debug\net8.0\Esercizio1.pdb
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.AssemblyInfoInputs.cache
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.AssemblyInfo.cs
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.csproj.CoreCompileInputs.cache
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.dll
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\refint\Esercizio1.dll
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.pdb
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\Esercizio1.genruntimeconfig.cache
+C:\Users\zioba\source\repos\Esercizio1\Esercizio1\obj\Debug\net8.0\ref\Esercizio1.dll
