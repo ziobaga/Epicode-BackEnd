@@ -1,0 +1,15 @@
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\bin\Debug\net8.0\esercizio2.exe
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\bin\Debug\net8.0\esercizio2.deps.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\bin\Debug\net8.0\esercizio2.runtimeconfig.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\bin\Debug\net8.0\esercizio2.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\bin\Debug\net8.0\esercizio2.pdb
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.AssemblyInfoInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.AssemblyInfo.cs
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.csproj.CoreCompileInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.sourcelink.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\refint\esercizio2.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.pdb
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\esercizio2.genruntimeconfig.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio2\esercizio2\obj\Debug\net8.0\ref\esercizio2.dll
