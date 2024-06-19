@@ -17,6 +17,7 @@
             {
                 check = true;
                 Console.WriteLine("Il nome esiste");
+                Cerca(nomi);
             }
         }
 
