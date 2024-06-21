@@ -1,0 +1,15 @@
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.AssemblyInfoInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.AssemblyInfo.cs
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.csproj.CoreCompileInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.sourcelink.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\bin\Debug\net8.0\venerdì.exe
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\bin\Debug\net8.0\venerdì.deps.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\bin\Debug\net8.0\venerdì.runtimeconfig.json
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\bin\Debug\net8.0\venerdì.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\bin\Debug\net8.0\venerdì.pdb
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\refint\venerdì.dll
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.pdb
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\venerdì.genruntimeconfig.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\venerdì\obj\Debug\net8.0\ref\venerdì.dll

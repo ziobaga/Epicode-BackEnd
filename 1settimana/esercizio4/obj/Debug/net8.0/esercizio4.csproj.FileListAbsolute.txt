@@ -1,0 +1,5 @@
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio4\obj\Debug\net8.0\esercizio4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio4\obj\Debug\net8.0\esercizio4.AssemblyInfoInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio4\obj\Debug\net8.0\esercizio4.AssemblyInfo.cs
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio4\obj\Debug\net8.0\esercizio4.csproj.CoreCompileInputs.cache
+C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\1settimana\esercizio4\obj\Debug\net8.0\esercizio4.sourcelink.json
