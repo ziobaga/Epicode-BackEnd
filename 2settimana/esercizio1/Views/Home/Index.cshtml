@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+@model List<MenuModel>
+
+<h1>Menu</h1>
+<ul>
+    @foreach (var item in Model)
+    {
+        <li>@item.Nome</li>
+    }
+
+</ul>
