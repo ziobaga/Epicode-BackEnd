@@ -49,6 +49,18 @@
       "PackagePath": "staticwebassets\\images\\3_img2.jpg"
     },
     {
+      "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\2settimana\\venerdì\\wwwroot\\images\\4_cover.jpg",
+      "PackagePath": "staticwebassets\\images\\4_cover.jpg"
+    },
+    {
+      "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\2settimana\\venerdì\\wwwroot\\images\\4_img1.jpg",
+      "PackagePath": "staticwebassets\\images\\4_img1.jpg"
+    },
+    {
+      "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\2settimana\\venerdì\\wwwroot\\images\\4_img2.jpg",
+      "PackagePath": "staticwebassets\\images\\4_img2.jpg"
+    },
+    {
       "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\2settimana\\venerdì\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },
