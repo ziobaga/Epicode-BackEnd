@@ -1,0 +1,55 @@
+﻿@model IEnumerable<venerdì.Entities.Article>
+
+@{
+    ViewData["Title"] = "Tutti gli Articoli";
+}
+
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Prezzo
+                        </th>
+                        <th>
+                            Data di pubblicazione
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Name)
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.Price)  €
+                            </td>
+                            <td>
+                                @Html.DisplayFor(modelItem => item.PublishedAt)
+                            </td>
+                            <td>
+                                <a asp-action="ReadById" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Visualizza</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <a asp-action="Write" class="btn btn-primary">Crea nuovo articolo</a>
+        </div>
+    </div>
+</div>

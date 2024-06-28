@@ -1,0 +1,76 @@
+﻿@model venerdì.Entities.Article
+
+@{
+    ViewData["Title"] = "Articolo";
+}
+
+<div class="container">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Nome</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Name)</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Prezzo</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Price) €</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Descrizione</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.Description)</p>
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-body">
+                    <h5 class="card-title">Data di pubblicazione</h5>
+                    <p class="card-text">@Html.DisplayFor(model => model.PublishedAt)</p>
+                </div>
+            </div>
+
+            @if (ViewBag.coverImg != null)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Immagine Principale</h5>
+                        <img src="@ViewBag.coverImg" alt="Cover Image" class="img-fluid" />
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.img1 != null)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Immagine aggiuntiva 1</h5>
+                        <img src="@ViewBag.img1" alt="Additional Image 1" class="img-fluid" />
+                    </div>
+                </div>
+            }
+
+            @if (ViewBag.img2 != null)
+            {
+                <div class="card mt-3">
+                    <div class="card-body">
+                        <h5 class="card-title">Immagine aggiuntiva 2</h5>
+                        <img src="@ViewBag.img2" alt="Additional Image 2" class="img-fluid" />
+                    </div>
+                </div>
+            }
+
+            <div class="mt-3 text-center">
+                <a asp-action="Index" class="btn btn-primary">Vai alla Home</a>
+                <a asp-action="Articles" class="btn btn-secondary">Visualizza gli Articoli</a>
+            </div>
+        </div>
+    </div>
+</div>
