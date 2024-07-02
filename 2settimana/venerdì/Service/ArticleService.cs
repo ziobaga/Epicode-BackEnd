@@ -16,9 +16,7 @@ namespace venerdì.Service
             entities.Add(entity);
         }
 
-       
-
-        public Article GetById(int id) => 
+       public Article GetById(int id) => 
             entities.Single(e => e.Id == id);
         
         
