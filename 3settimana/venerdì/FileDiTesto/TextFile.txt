@@ -1,0 +1,151 @@
+﻿==============3 TABELLE==============
+
+CREATE TABLE [dbo].[ANAGRAFICA] (
+    [idanagrafica] INT           NOT NULL,
+    [Cognome]      VARCHAR (50)  NULL,
+    [Nome]         VARCHAR (50)  NULL,
+    [Indirizzo]    VARCHAR (100) NULL,
+    [Città]        VARCHAR (50)  NULL,
+    [CAP]          VARCHAR (10)  NULL,
+    [Cod_Fisc]     VARCHAR (16)  NULL,
+    PRIMARY KEY CLUSTERED ([idanagrafica] ASC)
+);
+
+CREATE TABLE [dbo].[TIPO_VIOLAZIONE] (
+    [idviolazione] INT           NOT NULL,
+    [descrizione]  VARCHAR (255) NULL,
+    PRIMARY KEY CLUSTERED ([idviolazione] ASC)
+);
+
+CREATE TABLE [dbo].[VERBALE] (
+    [idverbale]               INT             NOT NULL,
+    [DataViolazione]          DATE            NULL,
+    [IndirizzoViolazione]     VARCHAR (100)   NULL,
+    [Nominativo_Agente]       VARCHAR (50)    NULL,
+    [DataTrascrizioneVerbale] DATE            NULL,
+    [Importo]                 DECIMAL (10, 2) NULL,
+    [DecurtamentoPunti]       INT             NULL,
+    [idanagrafica]            INT             NULL,
+    [idviolazione]            INT             NULL,
+    PRIMARY KEY CLUSTERED ([idverbale] ASC),
+    CONSTRAINT [FK_ANAGRAFICA] FOREIGN KEY ([idanagrafica]) REFERENCES [dbo].[ANAGRAFICA] ([idanagrafica]),
+    CONSTRAINT [FK_TIPO_VIOLAZIONE] FOREIGN KEY ([idviolazione]) REFERENCES [dbo].[TIPO_VIOLAZIONE] ([idviolazione])
+);
+
+
+
+
+
+
+==============QUERY DELLE TABELLE==============
+
+INSERT INTO ANAGRAFICA (idanagrafica, Cognome, Nome, Indirizzo, Città, CAP, Cod_Fisc)
+VALUES
+(1, 'Rossi', 'Mario', 'Via Roma 1', 'Palermo', '90100', 'RSSMRA80A01H501U'),
+(2, 'Bianchi', 'Luigi', 'Via Milano 2', 'Milano', '20100', 'BNCLGU70B02F205X'),
+(3, 'Verdi', 'Giuseppe', 'Via Torino 5', 'Torino', '10100', 'VRDGPP80A01H501T'),
+(4, 'Gialli', 'Laura', 'Via Napoli 6', 'Napoli', '80100', 'GLLLRA85M01F839V'),
+(5, 'Azzurri', 'Alessandro', 'Via Bologna 7', 'Bologna', '40100', 'AZZLSN78C09D615W'),
+(6, 'Rossi', 'Giovanna', 'Via Genova 8', 'Genova', '16100', 'RSSGVN90D41H501U'),
+(7, 'Bianchi', 'Marco', 'Via Bari 9', 'Bari', '70100', 'BNCMRC88E21F205Y'),
+(8, 'Neri', 'Elena', 'Via Venezia 10', 'Venezia', '30100', 'NREELE92T41H501X'),
+(9, 'Marrone', 'Luca', 'Via Pisa 11', 'Pisa', '56100', 'MRRLCA83D21H501R'),
+(10, 'Blu', 'Sofia', 'Via Firenze 12', 'Firenze', '50100', 'BLUSOF88M21H501G');
+
+INSERT INTO TIPO_VIOLAZIONE (idviolazione, descrizione)
+VALUES
+(1, 'Eccesso di velocità'),
+(2, 'Mancato rispetto del semaforo rosso'),
+(3, 'Sosta vietata'),
+(4, 'Guida senza cintura di sicurezza'),
+(5, 'Guida in stato di ebbrezza');
+
+INSERT INTO VERBALE (idverbale, DataViolazione, IndirizzoViolazione, Nominativo_Agente, DataTrascrizioneVerbale, Importo, DecurtamentoPunti, idanagrafica, idviolazione)
+VALUES
+(1, '2024-06-15', 'Via Garibaldi 5', 'Agente Rossi', '2024-06-16', 150.00, 2, 1, 1),
+(2, '2024-07-01', 'Piazza Duomo', 'Agente Bianchi', '2024-07-02', 100.00, 1, 2, 3),
+(3, '2024-07-10', 'Corso Vittorio Emanuele', 'Agente Verdi', '2024-07-11', 200.00, 3, 3, 2),
+(4, '2024-07-20', 'Via Dante 10', 'Agente Ferrari', '2024-07-21', 120.00, 2, 4, 4),
+(5, '2024-08-05', 'Via Montenapoleone', 'Agente Rossi', '2024-08-06', 180.00, 2, 2, 1),
+(6, '2024-08-12', 'Via Roma 20', 'Agente Bianchi', '2024-08-13', 130.00, 2, 4, 2),
+(7, '2024-08-18', 'Corso Italia 15', 'Agente Rossi', '2024-08-19', 90.00, 1, 1, 3),
+(8, '2024-08-25', 'Via Milano 30', 'Agente Verdi', '2024-08-26', 170.00, 3, 3, 4),
+(9, '2024-09-02', 'Piazza San Carlo', 'Agente Ferrari', '2024-09-03', 140.00, 2, 2, 1),
+(10, '2024-09-10', 'Corso Magenta 5', 'Agente Bianchi', '2024-09-11', 110.00, 1, 3, 2);
+
+
+
+
+
+==============QUERY DELLE TASK==============
+
+-- Query 1: Conteggio dei verbali trascritti
+SELECT COUNT(*) AS NumeroVerbali FROM VERBALE;
+
+-- Query 2: Conteggio dei verbali trascritti raggruppati per anagrafica
+SELECT idanagrafica, COUNT(*) AS NumeroVerbali
+FROM VERBALE
+GROUP BY idanagrafica;
+
+-- Query 3: Conteggio dei verbali trascritti raggruppati per tipo di violazione
+SELECT idviolazione, COUNT(*) AS NumeroVerbali
+FROM VERBALE
+GROUP BY idviolazione;
+
+-- Query 4: Totale dei punti decurtati per ogni anagrafica
+SELECT a.Cognome, a.Nome, SUM(v.DecurtamentoPunti) AS TotalePuntiDecurtati
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+GROUP BY a.Cognome, a.Nome;
+
+-- Query 5: Cognome, Nome, Data violazione, Indirizzo violazione, importo e punti decurtati per tutti gli anagrafici residenti a Palermo
+SELECT a.Cognome, a.Nome, v.DataViolazione, v.IndirizzoViolazione, v.Importo, v.DecurtamentoPunti
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+WHERE a.Città = 'Palermo';
+
+-- Query 6: Cognome, Nome, Indirizzo, Data violazione, importo e punti decurtati per le violazioni fatte tra il febbraio 2009 e luglio 2009 (esempio)
+SELECT a.Cognome, a.Nome, v.IndirizzoViolazione, v.DataViolazione, v.Importo, v.DecurtamentoPunti
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+WHERE v.DataViolazione BETWEEN '2009-02-01' AND '2009-07-31';
+
+-- Query 7: Totale degli importi per ogni anagrafico
+SELECT a.Cognome, a.Nome, SUM(v.Importo) AS TotaleImporti
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+GROUP BY a.Cognome, a.Nome;
+
+-- Query 8: Visualizzazione di tutti gli anagrafici residenti a Palermo
+SELECT *
+FROM ANAGRAFICA
+WHERE Città = 'Palermo';
+
+-- Query 9: Query che visualizzi Data violazione, Importo e decurtamento punti relativi ad una certa data (esempio)
+SELECT DataViolazione, Importo, DecurtamentoPunti
+FROM VERBALE
+WHERE DataViolazione = '2024-07-10';
+
+-- Query 10: Conteggio delle violazioni contestate raggruppate per Nominativo dell’agente di Polizia
+SELECT Nominativo_Agente, COUNT(*) AS NumeroViolazioni
+FROM VERBALE
+GROUP BY Nominativo_Agente;
+
+-- Query 11: Cognome, Nome, Indirizzo, Data violazione, Importo e punti decurtati per tutte le violazioni che superino il decurtamento di 5 punti
+SELECT a.Cognome, a.Nome, v.IndirizzoViolazione, v.DataViolazione, v.Importo, v.DecurtamentoPunti
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+WHERE v.DecurtamentoPunti > 5;
+
+-- Query 12: Cognome, Nome, Indirizzo, Data violazione, Importo e punti decurtati per tutte le violazioni che superino l’importo di 400 euro
+SELECT a.Cognome, a.Nome, v.IndirizzoViolazione, v.DataViolazione, v.Importo, v.DecurtamentoPunti
+FROM ANAGRAFICA a
+JOIN VERBALE v ON a.idanagrafica = v.idanagrafica
+WHERE v.Importo > 400;
+
+
+
+
+
+
+
