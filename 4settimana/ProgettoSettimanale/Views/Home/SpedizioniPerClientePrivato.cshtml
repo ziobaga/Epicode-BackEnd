@@ -1,0 +1,40 @@
+﻿
+@model IEnumerable<ProgettoSettimanale.Models.Spedizione>
+
+<h1>Spedizioni per Cliente Privato</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id Spedizione</th>
+            <th>Num Id</th>
+            <th>Data Spedizione</th>
+            <th>Peso</th>
+            <th>Città Destinatario</th>
+            <th>Indirizzo</th>
+            <th>Nome Destinatario</th>
+            <th>Costo Spedizione</th>
+            <th>Data Consegna Prevista</th>
+            <th>Data Ultimo Aggiornamento</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spedizione in Model)
+        {
+            <tr>
+                <td>@spedizione.IdSpedizione</td>
+                <td>@spedizione.NumId</td>
+                <td>@spedizione.DataSpedizione</td>
+                <td>@spedizione.Peso</td>
+                <td>@spedizione.CittaDestinatario</td>
+                <td>@spedizione.Indirizzo</td>
+                <td>@spedizione.NomeDestinatario</td>
+                <td>@spedizione.CostoSpedizione</td>
+                <td>@spedizione.DataConsegnaPrev.ToString("dd/MM/yyyy")</td>
+                <td>@spedizione.DataOraAggiornamento.ToString("dd/MM/yyyy")</td>
+
+            </tr>
+        }
+    </tbody>
+</table>

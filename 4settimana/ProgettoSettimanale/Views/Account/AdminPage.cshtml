@@ -1,0 +1,156 @@
+﻿﻿
+@model ProgettoSettimanale.Models.AdminPageViewModel
+
+<h1>Spedizioni In Consegna Oggi</h1>
+
+<!-- Tabella per visualizzare le spedizioni in consegna -->
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id Spedizione</th>
+            <th>Cliente Azienda</th>
+            <th>Cliente Privato</th>
+            <th>Num Id</th>
+            <th>Data Spedizione</th>
+            <th>Peso</th>
+            <th>Città Destinatario</th>
+            <th>Indirizzo</th>
+            <th>Nome Destinatario</th>
+            <th>Costo Spedizione</th>
+            <th>Data Consegna Prevista</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spedizione in Model.Spedizioni)
+        {
+            <tr>
+                <td>@spedizione.IdSpedizione</td>
+                <td>@spedizione.FK_ClienteAzienda</td>
+                <td>@spedizione.FK_ClientePrivato</td>
+                <td>@spedizione.NumId</td>
+                <td>@spedizione.DataSpedizione.ToString("dd/MM/yyyy")</td>
+                <td>@spedizione.Peso</td>
+                <td>@spedizione.CittaDestinatario</td>
+                <td>@spedizione.Indirizzo</td>
+                <td>@spedizione.NomeDestinatario</td>
+                <td>@spedizione.CostoSpedizione</td>
+                <td>@spedizione.DataConsegnaPrev.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+<h2>Numero totale di spedizioni non consegnate: @Model.TotSpedizioniNonConsegnate</h2>
+
+
+<h2>Spedizioni Per Città</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Città Destinatario</th>
+            <th>Numero Totale Spedizioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var result in Model.SpedizioniPerCitta)
+        {
+            <tr>
+                <td>@result.CittaDestinatario</td>
+                <td>@result.NumeroTotaleSpedizioni</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Tutte le spedizioni:</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id Spedizione</th>
+            <th>Cliente Azienda</th>
+            <th>Cliente Privato</th>
+            <th>Num Id</th>
+            <th>Data Spedizione</th>
+            <th>Peso</th>
+            <th>Città Destinatario</th>
+            <th>Indirizzo</th>
+            <th>Nome Destinatario</th>
+            <th>Costo Spedizione</th>
+            <th>Data Consegna Prevista</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spedizione in Model.GetAllSpedizioni)
+        {
+            <tr>
+                <td>@spedizione.IdSpedizione</td>
+                <td>@spedizione.FK_ClienteAzienda</td>
+                <td>@spedizione.FK_ClientePrivato</td>
+                <td>@spedizione.NumId</td>
+                <td>@spedizione.DataSpedizione.ToString("dd/MM/yyyy")</td>
+                <td>@spedizione.Peso</td>
+                <td>@spedizione.CittaDestinatario</td>
+                <td>@spedizione.Indirizzo</td>
+                <td>@spedizione.NomeDestinatario</td>
+                <td>@spedizione.CostoSpedizione</td>
+                <td>@spedizione.DataConsegnaPrev.ToString("dd/MM/yyyy")</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Lista di tutte le azienda</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdAzienda</th>
+            <th>Nome</th>
+            <th>Sede</th>
+            <th>Intestatario</th>
+            <th>P.IVA</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spedizione in Model.GetAllAzienda)
+        {
+            <tr>
+                <td>@spedizione.IdClienteAzienda</td>
+                <td>@spedizione.Nome</td>
+                <td>@spedizione.Sede</td>
+                <td>@spedizione.Intestatario</td>
+                <td>@spedizione.PIVA</td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Lista di tutti i privati</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>IdPrivato</th>
+            <th>Nome</th>
+            <th>Cognome</th>
+            <th>Data Nascita</th>
+            <th>Codice Fiscale</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var spedizione in Model.GetAllPrivati)
+        {
+            <tr>
+                <td>@spedizione.IdClientePriv</td>
+                <td>@spedizione.Nome</td>
+                <td>@spedizione.Cognome</td>
+                <td>@spedizione.DataNascita.ToString("dd/MM/yyyy")</td>
+                <td>@spedizione.CF</td>
+            </tr>
+        }
+    </tbody>
+</table>
