@@ -36,7 +36,7 @@ namespace venerdì.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreateAnagrafica(Anagrafica anagrafica)
+        public IActionResult CreaAnagrafica(Anagrafica anagrafica)
         {
             _logger.LogInformation("Received request to create Anagrafica.");
 

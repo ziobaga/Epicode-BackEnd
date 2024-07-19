@@ -71,14 +71,14 @@ namespace venerdì.Services
                         {
                             while (reader.Read())
                             {
-                                var verbaleByPuntiDecurtati = new PuntiDecurtati
+                                var verbalePuntiDecurtati = new PuntiDecurtati
                                 {
                                     IDAnagrafica = reader.GetInt32(0),
                                     Nome = reader.GetString(1),
                                     Cognome = reader.GetString(2),
                                     TotalePuntiDecurtati = reader.GetInt32(3)
                                 };
-                                result.Add(verbaleByPuntiDecurtati);
+                                result.Add(verbalePuntiDecurtati);
                             }
                         }
                     }

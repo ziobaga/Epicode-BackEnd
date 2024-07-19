@@ -1,8 +1,19 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Benvenuto - Gestionale Verbali";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="text-center mt-5">
+    <h1 class="display-4">Benvenuto nel Gestionale Verbali</h1>
+    <p class="lead">Gestisci e consulta tutti i verbali in modo semplice e veloce.</p>
+
+    <div class="mt-4">
+        <a class="btn btn-primary btn-lg" asp-controller="Home" asp-action="CreaAnagrafica" role="button"><i class="bi bi-person-plus"></i> Aggiungi Nuova Anagrafica</a>
+        <a class="btn btn-success btn-lg" asp-controller="Home" asp-action="CreaVerbale" role="button"><i class="bi bi-file-earmark-text"></i> Crea Nuovo Verbale</a>
+        <a class="btn btn-info btn-lg" asp-controller="Home" asp-action="TutteLeViolazioni" role="button"><i class="bi bi-search"></i> Visualizza Violazioni</a>
+        <a class="btn btn-warning btn-lg" asp-controller="Home" asp-action="PuntiDecurtatiTrasgressori" role="button"><i class="bi bi-star"></i> Punti Decurtati Trasgressori</a>
+    </div>
+
+    
 </div>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
