@@ -1,0 +1,43 @@
+﻿@model IEnumerable<venerdì.Models.ViolazioneSopra10Punti>
+
+@{
+    ViewData["Title"] = "Violazioni con oltre 10 punti decurtati";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Violazioni con oltre 10 punti decurtati</h1>
+
+    <div class="card">
+        <div class="card-header bg-danger text-white">
+            Elenco delle Violazioni con Oltre 10 Punti Decurtati
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Importo</th>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Data di Violazione</th>
+                        <th>Decurtamento Punti</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Importo.ToString("C")</td>
+                            <td>@item.Nome</td>
+                            <td>@item.Cognome</td>
+                            <td>@item.DataViolazione.ToShortDateString()</td>
+                            <td>@item.DecurtamentoPunti</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>

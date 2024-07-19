@@ -1,0 +1,35 @@
+﻿@model venerdì.Models.TipoViolazione
+
+@{
+    ViewData["Title"] = "Crea Violazione";
+}
+
+<h1 class="text-center mt-4">Crea Violazione</h1>
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    Inserisci i dettagli della Violazione
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreaViolazione" method="post">
+                        <div class="form-group">
+                            <label asp-for="Descrizione" class="control-label"></label>
+                            <input asp-for="Descrizione" class="form-control" />
+                            <span asp-validation-for="Descrizione" class="text-danger"></span>
+                        </div>
+                        <div class="form-group text-center mt-3">
+                            <button type="submit" class="btn btn-primary">Crea Violazione</button>
+                        </div>
+                        <div class="text-center mt-3">
+                            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+           
+        </div>
+    </div>
+</div>

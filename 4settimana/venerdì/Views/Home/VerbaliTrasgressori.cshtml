@@ -1,0 +1,41 @@
+﻿@model IEnumerable<venerdì.Models.VerbaliTrasgressori>
+
+@{
+    ViewData["Title"] = "Verbali per Trasgressore";
+}
+
+<div class="container mt-4">
+    <h1 class="text-center mb-4">Verbali per Trasgressore</h1>
+
+    <div class="card">
+        <div class="card-header bg-primary text-white">
+            Elenco dei Verbali per Trasgressore
+        </div>
+        <div class="card-body">
+            <table class="table table-striped table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID Trasgressore</th>
+                        <th>Nome</th>
+                        <th>Cognome</th>
+                        <th>Totale Verbali</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.IDAnagrafica</td>
+                            <td>@item.Nome</td>
+                            <td>@item.Cognome</td>
+                            <td>@item.TotaleVerbali</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer text-center">
+            <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+        </div>
+    </div>
+</div>
