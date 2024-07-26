@@ -29,6 +29,7 @@ namespace ProgettoSettimanale
             // Registrazione dei servizi
             builder.Services
                 .AddScoped<IAuthService, AuthService>()
+                .AddScoped<IServizioService, ServizioService>()
                 .AddScoped<ICreazioneService, CreazioneService>()
                 .AddScoped<IVisualizzaService, VisualizzaService>()
                 .AddScoped<IRicercaService, RicercaService>();

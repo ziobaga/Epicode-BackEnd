@@ -47,6 +47,19 @@ namespace ProgettoSettimanale.Services
             return result;
         }
 
+        protected void ExecuteNonQuery(string commandText, Action<SqlCommand> parameterAction = null)
+        {
+            using (var connection = new SqlConnection(_connectionString))
+            {
+                connection.Open();
+                using (var command = new SqlCommand(commandText, connection))
+                {
+                    parameterAction?.Invoke(command);
+                    command.ExecuteNonQuery();
+                }
+            }
+        }
+
         // async
         protected async Task<List<T>> ExecuteReaderAsync<T>(string commandText, Action<SqlCommand> parameterAction, Func<SqlDataReader, T> readAction)
         {

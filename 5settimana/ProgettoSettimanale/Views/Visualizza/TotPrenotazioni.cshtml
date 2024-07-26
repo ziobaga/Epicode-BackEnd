@@ -21,6 +21,7 @@
                 <th>Tipo Pensione</th>
                 <th>ID Persona</th>
                 <th>ID Camera</th>
+                <th>Azione</th> 
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,10 @@
                     <td>@prenotazione.DettagliSoggiorno</td>
                     <td>@prenotazione.ClienteId</td>
                     <td>@prenotazione.CameraId</td>
+                    <td>
+                        <!-- Aggiungi il pulsante per reindirizzare alla pagina dei servizi aggiuntivi -->
+                        <a href="@Url.Action("AddServizio", "Servizio", new { prenotazioneId = prenotazione.Id })" class="btn btn-primary">Aggiungi Servizi</a>
+                    </td>
                 </tr>
             }
         </tbody>

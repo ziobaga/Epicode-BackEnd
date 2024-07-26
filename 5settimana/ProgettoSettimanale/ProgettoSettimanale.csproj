@@ -16,7 +16,6 @@
 
   <ItemGroup>
     <Folder Include="QueryTab\" />
-    <Folder Include="Views\Servizio\" />
   </ItemGroup>
 
 </Project>
