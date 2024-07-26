@@ -1,0 +1,79 @@
+﻿﻿
+@model ProgettoSettimanale.Models.Cliente
+
+@{
+    ViewData["Title"] = "Crea Cliente";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-success text-white">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreazioneCliente" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Nome" class="control-label">Nome</label>
+                            <input asp-for="Nome" class="form-control" placeholder="Inserisci il nome" />
+                            <span asp-validation-for="Nome" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Cognome" class="control-label">Cognome</label>
+                            <input asp-for="Cognome" class="form-control" placeholder="Inserisci il cognome" />
+                            <span asp-validation-for="Cognome" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="CodiceFiscale" class="control-label">Codice Fiscale</label>
+                            <input asp-for="CodiceFiscale" class="form-control" placeholder="Inserisci il codice fiscale" />
+                            <span asp-validation-for="CodiceFiscale" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input asp-for="Email" class="form-control" placeholder="Inserisci l'email" />
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Telefono" class="control-label">Telefono</label>
+                            <input asp-for="Telefono" class="form-control" placeholder="Inserisci il telefono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Cellulare" class="control-label">Cellulare</label>
+                            <input asp-for="Cellulare" class="form-control" placeholder="Inserisci il cellulare" />
+                            <span asp-validation-for="Cellulare" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Citta" class="control-label">Città</label>
+                            <input asp-for="Citta" class="form-control" placeholder="Inserisci la città" />
+                            <span asp-validation-for="Citta" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Provincia" class="control-label">Provincia</label>
+                            <input asp-for="Provincia" class="form-control" placeholder="Inserisci la provincia" />
+                            <span asp-validation-for="Provincia" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-success">Crea</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

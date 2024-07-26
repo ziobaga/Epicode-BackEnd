@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ProgettoSettimanale.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Visualizza Prenotazioni";
+}
+
+<h1 class="mb-4">@ViewData["Title"]</h1>
+
+<div class="table-responsive">
+    <table class="table table-striped table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th>ID</th>
+                <th>Data Prenotazione</th>
+                <th>Num. Progr.</th>
+                <th>Anno</th>
+                <th>Dal</th>
+                <th>Al</th>
+                <th>Caparra</th>
+                <th>Tariffa</th>
+                <th>Tipo Pensione</th>
+                <th>ID Persona</th>
+                <th>ID Camera</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var prenotazione in Model)
+            {
+                <tr>
+                    <td>@prenotazione.Id</td>
+                    <td>@prenotazione.DataPrenotazione.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                    <td>@prenotazione.NumeroProgressivo</td>
+                    <td>@prenotazione.Anno</td>
+                    <td>@prenotazione.Dal.ToString("yyyy-MM-dd")</td>
+                    <td>@prenotazione.Al.ToString("yyyy-MM-dd")</td>
+                    <td>@prenotazione.CaparraConfirmatoria.ToString("C")</td>
+                    <td>@prenotazione.Tariffa.ToString("C")</td>
+                    <td>@prenotazione.DettagliSoggiorno</td>
+                    <td>@prenotazione.ClienteId</td>
+                    <td>@prenotazione.CameraId</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

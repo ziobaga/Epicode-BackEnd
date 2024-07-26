@@ -1,0 +1,86 @@
+﻿<div class="container mt-4">
+    <!-- Sezione Creazione -->
+    <div class="row mb-4">
+        <div class="col-12 mb-3">
+            <h2 class="border-bottom pb-2">Creazione</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Creazione Camera</h5>
+                    <a class="btn btn-primary" asp-area="" asp-controller="Creazione" asp-action="CreazioneCamera">Vai</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Creazione Cliente</h5>
+                    <a class="btn btn-success" asp-area="" asp-controller="Creazione" asp-action="CreazioneCliente">Vai</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Creazione Prenotazione</h5>
+                    <a class="btn btn-warning" asp-area="" asp-controller="Creazione" asp-action="CreazionePrenotazione">Vai</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Visualizzazione -->
+    <div class="row mb-4">
+        <div class="col-12 mb-3">
+            <h2 class="border-bottom pb-2">Visualizzazione</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Visualizza Camere</h5>
+                    <a class="btn btn-secondary" asp-area="" asp-controller="Visualizza" asp-action="TotCamere">Vai</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Visualizza Clienti</h5>
+                    <a class="btn btn-danger" asp-area="" asp-controller="Visualizza" asp-action="TotClienti">Vai</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Visualizza Prenotazioni</h5>
+                    <a class="btn btn-info" asp-area="" asp-controller="Visualizza" asp-action="TotPrenotazioni">Vai</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sezione Ricerca -->
+    <div class="row justify-content-center">
+        <div class="col-12 mb-3">
+            <h2 class="border-bottom pb-2">Ricerca</h2>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Ricerca CF</h5>
+                    <a class="btn btn-light" asp-area="" asp-controller="Ricerca" asp-action="RicercaByCF">Vai</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card shadow-sm text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Ricerca Tipo Pensione</h5>
+                    <a class="btn btn-dark text-light" asp-area="" asp-controller="Ricerca" asp-action="RicercaByDettagliSoggiorno">Vai</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

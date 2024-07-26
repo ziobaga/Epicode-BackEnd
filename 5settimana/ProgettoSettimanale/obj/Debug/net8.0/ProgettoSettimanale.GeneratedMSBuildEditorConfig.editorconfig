@@ -1,0 +1,99 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = ProgettoSettimanale
+build_property.RootNamespace = ProgettoSettimanale
+build_property.ProjectDir = C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\5settimana\ProgettoSettimanale\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\zioba\OneDrive\Desktop\EPICODE\Repository GitHub\Epicode-Backend\Epicode-Backend\5settimana\ProgettoSettimanale
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Auth/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Auth/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQXV0aFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Creazione/CreazioneCamera.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXppb25lXENyZWF6aW9uZUNhbWVyYS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Creazione/CreazioneCliente.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXppb25lXENyZWF6aW9uZUNsaWVudGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Creazione/CreazionePrenotazione.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ3JlYXppb25lXENyZWF6aW9uZVByZW5vdGF6aW9uZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Home/Management.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNYW5hZ2VtZW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Ricerca/RicercaByCF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmljZXJjYVxSaWNlcmNhQnlDRi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Ricerca/RicercaByDettagliSoggiorno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmljZXJjYVxSaWNlcmNhQnlEZXR0YWdsaVNvZ2dpb3Juby5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Ricerca/TotByCF.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmljZXJjYVxUb3RCeUNGLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Ricerca/TotByDettagliSoggiorno.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmljZXJjYVxUb3RCeURldHRhZ2xpU29nZ2lvcm5vLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Visualizza/TotCamere.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzdWFsaXp6YVxUb3RDYW1lcmUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Visualizza/TotClienti.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzdWFsaXp6YVxUb3RDbGllbnRpLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Visualizza/TotPrenotazioni.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVmlzdWFsaXp6YVxUb3RQcmVub3RhemlvbmkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/zioba/OneDrive/Desktop/EPICODE/Repository GitHub/Epicode-Backend/Epicode-Backend/5settimana/ProgettoSettimanale/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-c4uof1qrxq

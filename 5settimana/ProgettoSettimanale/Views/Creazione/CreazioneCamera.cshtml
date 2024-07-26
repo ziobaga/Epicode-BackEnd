@@ -1,0 +1,50 @@
+﻿@model ProgettoSettimanale.Models.Camera
+
+@{
+    ViewData["Title"] = "Crea Camera";
+}
+
+
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">@ViewData["Title"]</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="CreazioneCamera" method="post">
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Numero" class="control-label">Numero della Camera</label>
+                            <input asp-for="Numero" class="form-control" placeholder="Inserisci il numero della camera" />
+                            <span asp-validation-for="Numero" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Descrizione" class="control-label">Descrizione della Camera</label>
+                            <input asp-for="Descrizione" class="form-control" placeholder="Inserisci una descrizione" />
+                            <span asp-validation-for="Descrizione" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label asp-for="Tipologia" class="control-label">Tipologia della Camera</label>
+                            <input asp-for="Tipologia" class="form-control" placeholder="Inserisci la tipologia della camera" />
+                            <span asp-validation-for="Tipologia" class="text-danger"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary">Crea</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

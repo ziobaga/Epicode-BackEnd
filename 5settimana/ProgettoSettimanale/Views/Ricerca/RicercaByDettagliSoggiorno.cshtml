@@ -1,0 +1,41 @@
+﻿@model ProgettoSettimanale.Models.Ricerca.RicercaPrenotazioneByDettagliSoggiornoRicerca
+
+@{
+    ViewData["Title"] = "Ricerca per Tipo Pensione";
+}
+
+<h1 class="text-center mb-4">@ViewData["Title"]</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form id="searchByTipoPensioneForm" method="post" asp-action="RicercaByDettagliSoggiorno">
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-group mb-3">
+                            <label asp-for="DettagliSoggiorno" class="form-label fs-5 fw-bold">Tipo di Pensione:</label>
+                            <select asp-for="DettagliSoggiorno" class="form-select form-select-lg" aria-label="Tipo di Pensione">
+                                <option value="">Seleziona un tipo di pensione</option>
+                                <option value="Solo Pernottamento">Solo Pernottamento</option>
+                                <option value="Pensione Completa">Pensione Completa</option>
+                                <option value="Mezza Pensione">Mezza Pensione</option>
+                            </select>
+                            <span asp-validation-for="DettagliSoggiorno" class="text-danger"></span>
+                        </div>
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary">Cerca</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
