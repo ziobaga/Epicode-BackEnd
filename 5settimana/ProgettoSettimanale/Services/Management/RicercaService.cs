@@ -45,7 +45,7 @@ namespace ProgettoSettimanale.Services.Management
                 throw new ArgumentException("Il tipo di pensione non può essere nullo o vuoto.", nameof(dettagliSoggiorno));
             }
 
-            var validPensionTypes = new HashSet<string> { "Solo pernottamento", "Pensione Completa", "Mezza Pensione" };
+            var validPensionTypes = new HashSet<string> { "Solo Pernottamento", "Pensione Completa", "Mezza Pensione" };
             if (!validPensionTypes.Contains(dettagliSoggiorno))
             {
                 throw new ArgumentException($"Il tipo di pensione '{dettagliSoggiorno}' non è valido. I tipi validi sono: {string.Join(", ", validPensionTypes)}.");
