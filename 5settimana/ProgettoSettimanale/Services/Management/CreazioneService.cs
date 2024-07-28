@@ -1,27 +1,28 @@
-﻿using Microsoft.Data.SqlClient;
-using ProgettoSettimanale.Models;
+﻿
+using Project.Models;
 using System.Data;
+using System.Data.SqlClient;
 
-namespace ProgettoSettimanale.Services.Management
+namespace Project.Services.Management
 {
     public class CreazioneService : CommonService, ICreazioneService
     {
-        private const string CREAZIONE_CLIENTE_COMMAND = "INSERT INTO [dbo].[Cliente] " +
-            "(CodiceFiscale,Cognome,Nome,Citta,Provincia,Email,Telefono,Cellulare) " +
-            "OUTPUT INSERTED.Id " +
-            "VALUES (@CodiceFiscale, @Cognome, @Nome, @Citta, @Provincia, @Email, @Telefono, @Cellulare)";
+        private const string CREA_PERSONA_COMMAND = "INSERT INTO [dbo].[Persone] " +
+            "(Nome,Cognome,CF,Email,Telefono,Cellulare,Città,Provincia) " +
+            "OUTPUT INSERTED.IdPersona " +
+            "VALUES (@Nome, @Cognome, @CF,@Email,@Telefono,@Cellulare, @Città, @Provincia)";
 
-        private const string CREAZIONE_CAMERA_COMMAND = "INSERT INTO [dbo].[Camera] " +
-            "(Numero, Descrizione, Tipologia) " +
-            "OUTPUT INSERTED.Id " +
-            "VALUES (@Numero, @Descrizione, @Tipologia)";
+        private const string CREA_CAMERA_COMMAND = "INSERT INTO [dbo].[Camere] " +
+            "(NumeroCamera, Descrizione, Tipologia) " +
+            "OUTPUT INSERTED.IdCamera " +
+            "VALUES (@NumeroCamera, @Descrizione, @Tipologia)";
+        
+        private const string CREA_PRENOTAZIONE_COMMAND = "INSERT INTO [dbo].[Prenotazioni] " +
+            "(DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera) " +
+            "OUTPUT INSERTED.IdPrenotazione " +
+            "VALUES (@DataPrenotazione, @NumProgressivo, @Anno, @SoggiornoDal, @SoggiornoAl, @Caparra, @Tariffa, @TipoPensione, @IdPersona, @IdCamera)";
 
-        private const string CREAZIONE_PRENOTAZIONE_COMMAND = "INSERT INTO [dbo].[Prenotazione] " +
-            "(ClienteId, CameraId, DataPrenotazione, NumeroProgressivo, Anno, Dal, Al, CaparraConfirmatoria, Tariffa, DettagliSoggiorno) " +
-            "OUTPUT INSERTED.Id " +
-            "VALUES (@ClienteId, @CameraId, @DataPrenotazione, @NumeroProgressivo, @Anno, @Dal, @Al, @CaparraConfirmatoria, @Tariffa, @DettagliSoggiorno)";
-
-        private const string GET_NEXT_NUM_PROGRESSIVO_COMMAND = "GetNextNumProgressivo";
+        private const string GET_NUM_PROGRESSIVO_COMMAND = "GetNextNumProgressivo";
 
         private readonly ILogger<CreazioneService> _logger;
 
@@ -30,33 +31,34 @@ namespace ProgettoSettimanale.Services.Management
             _logger = logger;
         }
 
-        public Cliente CreazioneCliente(Cliente cliente)
+
+        public Persona CreaPersona(Persona persona)
         {
             try
             {
-                var clienteId = ExecuteScalar<int>(CREAZIONE_CLIENTE_COMMAND, command =>
+                var personaId = ExecuteScalar<int>(CREA_PERSONA_COMMAND, command =>
                 {
-                    command.Parameters.AddWithValue("@CodiceFiscale", cliente.CodiceFiscale);
-                    command.Parameters.AddWithValue("@Cognome", cliente.Cognome);
-                    command.Parameters.AddWithValue("@Nome", cliente.Nome);
-                    command.Parameters.AddWithValue("@Citta", cliente.Citta ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@Provincia", cliente.Provincia ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@Email", cliente.Email ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@Telefono", cliente.Telefono ?? (object)DBNull.Value);
-                    command.Parameters.AddWithValue("@Cellulare", cliente.Cellulare ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Nome", persona.Nome);
+                    command.Parameters.AddWithValue("@Cognome", persona.Cognome);
+                    command.Parameters.AddWithValue("@CF", persona.CF);
+                    command.Parameters.AddWithValue("@Email", persona.Email ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Telefono", persona.Telefono ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Cellulare", persona.Cellulare ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Città", persona.Città ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@Provincia", persona.Provincia ?? (object)DBNull.Value);
                 });
 
-                return new Cliente
+                return new Persona
                 {
-                    Id = clienteId,
-                    CodiceFiscale = cliente.CodiceFiscale,
-                    Cognome = cliente.Cognome,
-                    Nome = cliente.Nome,
-                    Citta = cliente.Citta,
-                    Provincia = cliente.Provincia,
-                    Email = cliente.Email,
-                    Telefono = cliente.Telefono,
-                    Cellulare = cliente.Cellulare
+                    IdPersona = personaId,
+                    Nome = persona.Nome,
+                    Cognome = persona.Cognome,
+                    CF = persona.CF,
+                    Email = persona.Email,
+                    Telefono = persona.Telefono,
+                    Cellulare = persona.Cellulare,
+                    Città = persona.Città,
+                    Provincia = persona.Provincia
                 };
             }
             catch (Exception ex)
@@ -66,21 +68,21 @@ namespace ProgettoSettimanale.Services.Management
             }
         }
 
-        public Camera CreazioneCamera(Camera camera)
+        public Camera CreaCamera(Camera camera)
         {
             try
             {
-                var cameraId = ExecuteScalar<int>(CREAZIONE_CAMERA_COMMAND, command =>
+                var cameraId = ExecuteScalar<int>(CREA_CAMERA_COMMAND, command =>
                 {
-                    command.Parameters.AddWithValue("@Numero", camera.Numero);
+                    command.Parameters.AddWithValue("@NumeroCamera", camera.NumeroCamera);
                     command.Parameters.AddWithValue("@Descrizione", camera.Descrizione ?? (object)DBNull.Value);
                     command.Parameters.AddWithValue("@Tipologia", camera.Tipologia ?? (object)DBNull.Value);
                 });
 
                 return new Camera
                 {
-                    Id = cameraId,
-                    Numero = camera.Numero,
+                    IdCamera = cameraId,
+                    NumeroCamera = camera.NumeroCamera,
                     Descrizione = camera.Descrizione,
                     Tipologia = camera.Tipologia
                 };
@@ -91,24 +93,24 @@ namespace ProgettoSettimanale.Services.Management
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
-
-        public Prenotazione CreazionePrenotazione(Prenotazione prenotazione)
+        public Prenotazione CreaPrenotazione(Prenotazione prenotazione)
         {
             try
             {
                 prenotazione.DataPrenotazione = DateTime.Now;
-                prenotazione.Anno = prenotazione.Dal.Year;
+
+                prenotazione.Anno = prenotazione.SoggiornoDal.Year;
 
                 int nextNumProgressivo;
                 using (var connection = new SqlConnection(_connectionString))
                 {
                     connection.Open();
-                    using (var command = new SqlCommand(GET_NEXT_NUM_PROGRESSIVO_COMMAND, connection))
+                    using (var command = new SqlCommand(GET_NUM_PROGRESSIVO_COMMAND, connection))
                     {
                         command.CommandType = CommandType.StoredProcedure;
                         command.Parameters.AddWithValue("@Anno", prenotazione.Anno);
 
-                        var outputParam = new SqlParameter("@NextNumeroProgressivo", SqlDbType.Int)
+                        var outputParam = new SqlParameter("@NextNumProgressivo", SqlDbType.Int)
                         {
                             Direction = ParameterDirection.Output
                         };
@@ -119,35 +121,36 @@ namespace ProgettoSettimanale.Services.Management
                     }
                 }
 
-                prenotazione.NumeroProgressivo = nextNumProgressivo;
+                prenotazione.NumProgressivo = nextNumProgressivo;
 
-                var prenotazioneId = ExecuteScalar<int>(CREAZIONE_PRENOTAZIONE_COMMAND, command =>
+                var prenotazioneId = ExecuteScalar<int>(CREA_PRENOTAZIONE_COMMAND, command =>
                 {
-                    command.Parameters.AddWithValue("@ClienteId", prenotazione.ClienteId);
-                    command.Parameters.AddWithValue("@CameraId", prenotazione.CameraId);
                     command.Parameters.AddWithValue("@DataPrenotazione", prenotazione.DataPrenotazione);
-                    command.Parameters.AddWithValue("@NumeroProgressivo", prenotazione.NumeroProgressivo);
+                    command.Parameters.AddWithValue("@NumProgressivo", prenotazione.NumProgressivo);
                     command.Parameters.AddWithValue("@Anno", prenotazione.Anno);
-                    command.Parameters.AddWithValue("@Dal", prenotazione.Dal);
-                    command.Parameters.AddWithValue("@Al", prenotazione.Al);
-                    command.Parameters.AddWithValue("@CaparraConfirmatoria", prenotazione.CaparraConfirmatoria);
+                    command.Parameters.AddWithValue("@SoggiornoDal", prenotazione.SoggiornoDal);
+                    command.Parameters.AddWithValue("@SoggiornoAl", prenotazione.SoggiornoAl);
+                    command.Parameters.AddWithValue("@Caparra", prenotazione.Caparra);
                     command.Parameters.AddWithValue("@Tariffa", prenotazione.Tariffa);
-                    command.Parameters.AddWithValue("@DettagliSoggiorno", prenotazione.DettagliSoggiorno ?? (object)DBNull.Value);
+
+                    command.Parameters.AddWithValue("@TipoPensione", prenotazione.TipoPensione.ToString() ?? (object)DBNull.Value);
+                    command.Parameters.AddWithValue("@IdPersona", prenotazione.IdPersona);
+                    command.Parameters.AddWithValue("@IdCamera", prenotazione.IdCamera);
                 });
 
                 return new Prenotazione
                 {
-                    Id = prenotazioneId,
-                    ClienteId = prenotazione.ClienteId,
-                    CameraId = prenotazione.CameraId,
+                    IdPrenotazione = prenotazioneId,
                     DataPrenotazione = prenotazione.DataPrenotazione,
-                    NumeroProgressivo = prenotazione.NumeroProgressivo,
+                    NumProgressivo = prenotazione.NumProgressivo,
                     Anno = prenotazione.Anno,
-                    Dal = prenotazione.Dal,
-                    Al = prenotazione.Al,
-                    CaparraConfirmatoria = prenotazione.CaparraConfirmatoria,
+                    SoggiornoDal = prenotazione.SoggiornoDal,
+                    SoggiornoAl = prenotazione.SoggiornoAl,
+                    Caparra = prenotazione.Caparra,
                     Tariffa = prenotazione.Tariffa,
-                    DettagliSoggiorno = prenotazione.DettagliSoggiorno
+                    TipoPensione = prenotazione.TipoPensione,
+                    IdPersona = prenotazione.IdPersona,
+                    IdCamera = prenotazione.IdCamera
                 };
             }
             catch (Exception ex)
@@ -156,5 +159,7 @@ namespace ProgettoSettimanale.Services.Management
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
+
+
     }
 }

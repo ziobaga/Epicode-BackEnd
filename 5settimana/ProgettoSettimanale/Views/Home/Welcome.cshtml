@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Benvenuto";
+}
+
+<div class="container text-center mt-5">
+    <h2>@ViewData["Title"]</h2>
+    <p class="lead fs-2">
+        Benvenuto nella tua area personale! Sei riuscito ad accedere con successo al gestionale dell'hotel.
+    </p>
+    <p class="mt-3 fw-bold">
+        Ora puoi accedere a tutte le funzionalità per gestire le prenotazioni, visualizzare le informazioni e molto altro.
+    </p>
+    <a asp-controller="Auth" asp-action="Logout" class="btn btn-danger">Esci</a>
+</div>

@@ -1,11 +1,11 @@
-﻿using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using ProgettoSettimanale.Services.Auth;
+using Project.Models.Auth;
+using Project.Services.Auth;
 using System.Security.Claims;
-using ProgettoSettimanale.Models.Auth;
 
-namespace ProgettoSettimanale.Controllers
+namespace Project.Controllers
 {
     public class AuthController : Controller
     {
@@ -24,7 +24,7 @@ namespace ProgettoSettimanale.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(AuthModels model)
+        public async Task<IActionResult> Register(AuthViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -48,7 +48,7 @@ namespace ProgettoSettimanale.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Welcome", "Home");
             }
 
             catch (Exception ex)
@@ -67,7 +67,7 @@ namespace ProgettoSettimanale.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(AuthModels model)
+        public async Task<IActionResult> Login(AuthViewModel model)
         {
             if (!ModelState.IsValid)
             {
@@ -92,7 +92,7 @@ namespace ProgettoSettimanale.Controllers
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity));
-                return RedirectToAction("Index", "Home");
+                return RedirectToAction("Welcome", "Home");
             }
             catch (Exception ex)
             {

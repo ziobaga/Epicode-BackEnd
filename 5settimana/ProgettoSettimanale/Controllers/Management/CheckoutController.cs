@@ -1,12 +1,30 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using Project.Services;
 
-namespace ProgettoSettimanale.Controllers.Management
+[Authorize]
+public class CheckoutController : Controller
 {
-    public class CheckoutController : Controller
+    private readonly ILogger<CheckoutController> _logger;
+    private readonly ICheckoutService _checkoutService;
+
+    public CheckoutController(ICheckoutService checkoutService, ILogger<CheckoutController> logger)
     {
-        public IActionResult Index()
+        _checkoutService = checkoutService;
+        _logger = logger;
+    }
+
+    [HttpGet("Checkout")]
+    public async Task<IActionResult> Checkout(int idPrenotazione)
+    {
+        var prenotazione = await _checkoutService.GetPrenotazioneConImportoDaSaldare(idPrenotazione);
+
+        if (prenotazione == null)
         {
-            return View();
+            _logger.LogWarning("No prenotazione found for ID {IdPrenotazione}", idPrenotazione);
+            return NotFound("Prenotazione not found.");
         }
+
+        return View(prenotazione);
     }
 }

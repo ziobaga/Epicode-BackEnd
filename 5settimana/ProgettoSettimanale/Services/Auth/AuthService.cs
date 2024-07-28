@@ -1,8 +1,9 @@
-﻿using ProgettoSettimanale.Models.Auth;
-using System.Security.Cryptography; 
+﻿
+using Project.Models.Auth;
+using System.Security.Cryptography;
 using System.Text;
 
-namespace ProgettoSettimanale.Services.Auth
+namespace Project.Services.Auth
 {
     public class AuthService : CommonService, IAuthService
     {
@@ -18,7 +19,7 @@ namespace ProgettoSettimanale.Services.Auth
 
         private static string HashPassword(string password)
         {
-            using (var sha256 = SHA256.Create())  // Usa SHA256.Create() per ottenere un'istanza di SHA256
+            using (var sha256 = SHA256.Create())
             {
                 var bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
                 return Convert.ToBase64String(bytes);
@@ -79,5 +80,6 @@ namespace ProgettoSettimanale.Services.Auth
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
+
     }
 }

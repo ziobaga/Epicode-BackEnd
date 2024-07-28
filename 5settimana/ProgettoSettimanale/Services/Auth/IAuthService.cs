@@ -1,6 +1,6 @@
-﻿using ProgettoSettimanale.Models.Auth;
+﻿using Project.Models.Auth;
 
-namespace ProgettoSettimanale.Services.Auth
+namespace Project.Services.Auth
 {
     public interface IAuthService
     {

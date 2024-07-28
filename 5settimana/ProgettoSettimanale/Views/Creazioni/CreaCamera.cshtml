@@ -1,0 +1,49 @@
+﻿@model Project.Models.Camera
+
+@{
+    ViewData["Title"] = "Gestisci Camera";
+}
+
+<h2 class="mb-4 text-center">@ViewData["Title"]</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-12">
+            <form asp-action="CreaCamera" method="post" class="border p-4 shadow-sm rounded">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group mb-3">
+                    <label asp-for="NumeroCamera" class="control-label">Numero di camera</label>
+                    <input asp-for="NumeroCamera" class="form-control" />
+                    <span asp-validation-for="NumeroCamera" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Descrizione" class="control-label">Descrizione</label>
+                    <input asp-for="Descrizione" class="form-control" />
+                    <span asp-validation-for="Descrizione" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Tipologia" class="control-label">Tipologia</label>
+                    <select asp-for="Tipologia" class="form-control">
+                        <option value="">Scegli Tipologia</option>
+                        <option value="singola">Singola</option>
+                        <option value="doppia">Doppia</option>
+                    </select>
+                    <span asp-validation-for="Tipologia" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Crea</button>
+                    <a asp-controller="Home" asp-action="Management" class="btn btn-secondary ml-2">Indietro</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

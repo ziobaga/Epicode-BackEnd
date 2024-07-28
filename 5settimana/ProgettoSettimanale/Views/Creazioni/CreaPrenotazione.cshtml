@@ -1,0 +1,74 @@
+﻿@model Project.Models.Prenotazione
+
+@{
+    ViewData["Title"] = "Creazione Prenotazione";
+}
+
+<h2 class="mb-4">@ViewData["Title"]</h2>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-12">
+            <form asp-action="CreaPrenotazione" method="post" class="border p-4 shadow-sm rounded">
+                @Html.AntiForgeryToken()
+
+                <div class="form-group mb-3">
+                    <label asp-for="SoggiornoDal" class="control-label">Soggiorno Dal</label>
+                    <input asp-for="SoggiornoDal" class="form-control" type="date" />
+                    <span asp-validation-for="SoggiornoDal" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="SoggiornoAl" class="control-label">Soggiorno Al</label>
+                    <input asp-for="SoggiornoAl" class="form-control" type="date" />
+                    <span asp-validation-for="SoggiornoAl" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Caparra" class="control-label">Caparra</label>
+                    <input asp-for="Caparra" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Caparra" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Tariffa" class="control-label">Tariffa</label>
+                    <input asp-for="Tariffa" class="form-control" type="number" step="0.01" />
+                    <span asp-validation-for="Tariffa" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="TipoPensione" class="control-label">Tipo di Pensione</label>
+                    <select asp-for="TipoPensione" class="form-control">
+                        <option value="">Seleziona Tipo Pensione</option>
+                        <option value="Prima Colazione">Prima Colazione</option>
+                        <option value="Mezza Pensione">Mezza Pensione</option>
+                        <option value="Pensione Completa">Pensione Completa</option>
+                    </select>
+                    <span asp-validation-for="TipoPensione" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="IdPersona" class="control-label">ID Persona</label>
+                    <input asp-for="IdPersona" class="form-control" />
+                    <span asp-validation-for="IdPersona" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="IdCamera" class="control-label">ID Camera</label>
+                    <input asp-for="IdCamera" class="form-control" />
+                    <span asp-validation-for="IdCamera" class="text-danger fw-bold"></span>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Crea</button>
+                    <a asp-controller="Home" asp-action="Management" class="btn btn-secondary ml-2">Indietro</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,18 +1,20 @@
-﻿using ProgettoSettimanale.Models;
+﻿
+using Project.Models;
 
-namespace ProgettoSettimanale.Services.Management
+
+namespace Project.Services.Management
 {
     public class VisualizzaService : CommonService, IVisualizzaService
     {
         private const string GET_ALL_CAMERE_COMMAND =
-           "SELECT Id, Numero, Descrizione, Tipologia FROM [dbo].[Camera]";
+            "SELECT IdCamera, NumeroCamera, Descrizione, Tipologia FROM [dbo].[Camere]";
 
-        private const string GET_ALL_CLIENTE_COMMAND =
-            "SELECT Id, CodiceFiscale, Cognome, Nome,  Citta, Provincia, Email, Telefono, Cellulare FROM [dbo].[Cliente]";
+        private const string GET_ALL_PERSONE_COMMAND =
+            "SELECT IdPersona, Nome, Cognome, CF, Email, Telefono, Cellulare, Città, Provincia FROM [dbo].[Persone]";
 
         private const string GET_ALL_PRENOTAZIONI_COMMAND =
-            "SELECT Id, ClienteId, CameraId, DataPrenotazione, NumeroProgressivo, Anno, Dal, Al, CaparraConfirmatoria, Tariffa, DettagliSoggiorno " +
-            "FROM [dbo].[Prenotazione]";
+    "SELECT IdPrenotazione, DataPrenotazione, NumProgressivo, Anno, SoggiornoDal, SoggiornoAl, Caparra, Tariffa, TipoPensione, IdPersona, IdCamera " +
+    "FROM [dbo].[Prenotazioni]";
 
         private readonly ILogger<VisualizzaService> _logger;
 
@@ -31,8 +33,8 @@ namespace ProgettoSettimanale.Services.Management
                     command => { },
                     reader => new Camera
                     {
-                        Id = reader.GetInt32(0),
-                        Numero = reader.GetInt32(1),
+                        IdCamera = reader.GetInt32(0),
+                        NumeroCamera = reader.GetInt32(1),
                         Descrizione = reader.IsDBNull(2) ? null : reader.GetString(2),
                         Tipologia = reader.IsDBNull(3) ? null : reader.GetString(3)
                     });
@@ -44,30 +46,29 @@ namespace ProgettoSettimanale.Services.Management
             }
         }
 
-        public List<Cliente> GetAllClienti()
+        public List<Persona> GetAllPersone()
         {
             try
             {
                 return ExecuteReader(
-                    GET_ALL_CLIENTE_COMMAND,
-                    command => { /* Nessun parametro aggiuntivo */ },
-                    reader => new Cliente
+                    GET_ALL_PERSONE_COMMAND,
+                    command => { },
+                    reader => new Persona
                     {
-                        Id = reader.GetInt32(0),
-                        CodiceFiscale = reader.GetString(1),
+                        IdPersona = reader.GetInt32(0),
+                        Nome = reader.GetString(1),
                         Cognome = reader.GetString(2),
-                        Nome = reader.GetString(3),
-                        Citta = reader.IsDBNull(4) ? null : reader.GetString(4),
-                        Provincia = reader.IsDBNull(5) ? null : reader.GetString(5),
-                        Email = reader.IsDBNull(6) ? null : reader.GetString(6),
-                        Telefono = reader.IsDBNull(7) ? null : reader.GetString(7),
-                        Cellulare = reader.IsDBNull(8) ? null : reader.GetString(8),
-                        
+                        CF = reader.GetString(3),
+                        Email = reader.IsDBNull(4) ? null : reader.GetString(4),
+                        Telefono = reader.IsDBNull(5) ? null : reader.GetString(5),
+                        Cellulare = reader.IsDBNull(6) ? null : reader.GetString(6),
+                        Città = reader.IsDBNull(7) ? null : reader.GetString(7),
+                        Provincia = reader.IsDBNull(8) ? null : reader.GetString(8)
                     });
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Errore durante il recupero dei clienti.");
+                _logger.LogError(ex, "Errore durante il recupero delle persone.");
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
@@ -77,21 +78,20 @@ namespace ProgettoSettimanale.Services.Management
             {
                 return ExecuteReader(
                     GET_ALL_PRENOTAZIONI_COMMAND,
-                    command => { /* Nessun parametro aggiuntivo */ },
+                    command => { },
                     reader => new Prenotazione
                     {
-                        Id = reader.GetInt32(0),
-                        ClienteId = reader.GetInt32(1),
-                        CameraId = reader.GetInt32(2),
-                        DataPrenotazione = reader.GetDateTime(3),
-                        NumeroProgressivo = reader.GetInt32(4),
-                        Anno = reader.GetInt32(5),
-                        Dal = reader.GetDateTime(6),
-                        Al = reader.GetDateTime(7),
-                        CaparraConfirmatoria = reader.GetDecimal(8),
-                        Tariffa = reader.GetDecimal(9),
-                        DettagliSoggiorno = reader.IsDBNull(10) ? null : reader.GetString(10),
-                        
+                        IdPrenotazione = reader.GetInt32(0),
+                        DataPrenotazione = reader.GetDateTime(1),
+                        NumProgressivo = reader.GetInt32(2),
+                        Anno = reader.GetInt32(3),
+                        SoggiornoDal = reader.GetDateTime(4),
+                        SoggiornoAl = reader.GetDateTime(5),
+                        Caparra = reader.GetDecimal(6),
+                        Tariffa = reader.GetDecimal(7),
+                        TipoPensione = reader.IsDBNull(8) ? null : reader.GetString(8),
+                        IdPersona = reader.GetInt32(9),
+                        IdCamera = reader.GetInt32(10)
                     });
             }
             catch (Exception ex)
@@ -100,5 +100,6 @@ namespace ProgettoSettimanale.Services.Management
                 throw new Exception("Si è verificato un errore inatteso. Riprova più tardi.");
             }
         }
+
     }
 }

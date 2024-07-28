@@ -1,0 +1,60 @@
+﻿@model Project.Models.ViewModels.AddServizioAggVM
+
+@{
+    ViewData["Title"] = "Aggiungi Servizio Aggiuntivo";
+    var serviziAgg = ViewBag.serviziAgg as List<ServizioAgg>;
+}
+
+<h2 class="mb-4 text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    <form asp-action="AddServizio" method="post">
+        @Html.AntiForgeryToken()
+
+        <div class="mb-3">
+            <label asp-for="IdServizioAgg" class="form-label">Servizio Aggiuntivo</label>
+            <select asp-for="IdServizioAgg" class="form-select">
+                <option value="">Seleziona un servizio</option>
+                @foreach (var s in serviziAgg)
+                {
+                    <option value="@s.IdServizioAgg">@s.Descrizione</option>
+                }
+            </select>
+            <span asp-validation-for="IdServizioAgg" class="text-danger fw-bold"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Data" class="form-label">Data</label>
+            <input asp-for="Data" class="form-control" type="date" />
+            <span asp-validation-for="Data" class="text-danger fw-bold"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Quantita" class="form-label">Quantità</label>
+            <input asp-for="Quantita" class="form-control" type="number" min="1" />
+            <span asp-validation-for="Quantita" class="text-danger fw-bold"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Prezzo" class="form-label">Prezzo singolo</label>
+            <input asp-for="Prezzo" class="form-control" type="number" step="0.01" />
+            <span asp-validation-for="Prezzo" class="text-danger fw-bold"></span>
+        </div>
+
+        <input type="hidden" asp-for="IdPrenotazione" />
+
+        <div class="text-center mb-3">
+            <button type="submit" class="btn btn-primary">Aggiungi Servizio</button>
+        </div>
+    </form>
+
+    <div class="text-center">
+        <a asp-controller="Visualizzazioni" asp-action="ListaPrenotazioni" class="btn btn-secondary">Indietro</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

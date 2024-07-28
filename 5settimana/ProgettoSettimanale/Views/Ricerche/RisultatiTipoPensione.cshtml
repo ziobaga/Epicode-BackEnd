@@ -1,0 +1,65 @@
+﻿@model List<Project.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Risultati per Tipo Pensione";
+    int prenotazioniCount = Model?.Count ?? 0;
+}
+
+<h2 class="mb-4 text-center">@ViewData["Title"]</h2>
+
+<div class="container">
+    @if (Model != null && Model.Any())
+    {
+        <div class="alert alert-info mb-4" role="alert">
+            Trovate @prenotazioniCount prenotazioni.
+        </div>
+
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID Prenotazione</th>
+                        <th>Data Prenotazione</th>
+                        <th>Num Progressivo</th>
+                        <th>Anno</th>
+                        <th>Soggiorno Dal</th>
+                        <th>Soggiorno Al</th>
+                        <th>Caparra</th>
+                        <th>Tariffa</th>
+                        <th>Tipo Pensione</th>
+                        <th>ID Persona</th>
+                        <th>ID Camera</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var prenotazione in Model)
+                    {
+                        <tr>
+                            <td>@prenotazione.IdPrenotazione</td>
+                            <td>@prenotazione.DataPrenotazione.ToShortDateString()</td>
+                            <td>@prenotazione.NumProgressivo</td>
+                            <td>@prenotazione.Anno</td>
+                            <td>@prenotazione.SoggiornoDal.ToShortDateString()</td>
+                            <td>@prenotazione.SoggiornoAl.ToShortDateString()</td>
+                            <td>@prenotazione.Caparra.ToString("C2")</td>
+                            <td>@prenotazione.Tariffa.ToString("C2")</td>
+                            <td>@prenotazione.TipoPensione</td>
+                            <td>@prenotazione.IdPersona</td>
+                            <td>@prenotazione.IdCamera</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+
+        <div class="text-center mt-3">
+            <a asp-controller="Home" asp-action="Management" class="btn btn-secondary">Indietro</a>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-info text-center mt-3" role="alert">
+            Nessuna prenotazione trovata per il tipo di pensione fornito.
+        </div>
+    }
+    

@@ -1,8 +1,8 @@
 {
   "Files": [
     {
-      "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\5settimana\\ProgettoSettimanale\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\ProgettoSettimanale.bundle.scp.css",
-      "PackagePath": "staticwebassets\\ProgettoSettimanale.bundle.scp.css"
+      "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\5settimana\\ProgettoSettimanale\\obj\\Debug\\net8.0\\scopedcss\\projectbundle\\Project.bundle.scp.css",
+      "PackagePath": "staticwebassets\\Project.bundle.scp.css"
     },
     {
       "Id": "C:\\Users\\zioba\\OneDrive\\Desktop\\EPICODE\\Repository GitHub\\Epicode-Backend\\Epicode-Backend\\5settimana\\ProgettoSettimanale\\wwwroot\\css\\site.css",
@@ -245,20 +245,20 @@
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.ProgettoSettimanale.Microsoft.AspNetCore.StaticWebAssets.props",
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.Project.Microsoft.AspNetCore.StaticWebAssets.props",
       "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.ProgettoSettimanale.props",
-      "PackagePath": "build\\ProgettoSettimanale.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.build.Project.props",
+      "PackagePath": "build\\Project.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.ProgettoSettimanale.props",
-      "PackagePath": "buildMultiTargeting\\ProgettoSettimanale.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildMultiTargeting.Project.props",
+      "PackagePath": "buildMultiTargeting\\Project.props"
     },
     {
-      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.ProgettoSettimanale.props",
-      "PackagePath": "buildTransitive\\ProgettoSettimanale.props"
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.buildTransitive.Project.props",
+      "PackagePath": "buildTransitive\\Project.props"
     }
   ],
   "ElementsToRemove": []

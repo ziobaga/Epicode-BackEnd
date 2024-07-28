@@ -1,4 +1,4 @@
-namespace ProgettoSettimanale.Models
+namespace Project.Models
 {
     public class ErrorViewModel
     {

@@ -1,11 +1,11 @@
-﻿using ProgettoSettimanale.Models;
+﻿using Project.Models;
 
-namespace ProgettoSettimanale.Services.Management
+namespace Project.Services.Management
 {
     public interface IVisualizzaService
     {
-        List<Camera> GetAllCamere(); 
-        List<Cliente> GetAllClienti(); 
+        List<Camera> GetAllCamere();
+        List<Persona> GetAllPersone();
         List<Prenotazione> GetAllPrenotazioni();
     }
 }

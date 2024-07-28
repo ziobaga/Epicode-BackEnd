@@ -1,9 +1,9 @@
-﻿using ProgettoSettimanale.Models.Ricerca;
+﻿using Project.Models.ViewModels;
 
-namespace ProgettoSettimanale.Services
+namespace Project.Services
 {
     public interface ICheckoutService
     {
-        public Task<CheckoutRicerca> PrenotazioneConImportoDaSaldare(int PrenotazioneId);
+        public Task<CheckoutVM> GetPrenotazioneConImportoDaSaldare(int idPrenotazione);
     }
 }

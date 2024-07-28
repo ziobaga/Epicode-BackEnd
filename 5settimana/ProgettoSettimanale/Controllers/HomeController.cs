@@ -1,10 +1,10 @@
+
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ProgettoSettimanale.Models;
-using ProgettoSettimanale.Services;
+using Project.Models;
 using System.Diagnostics;
 
-namespace ProgettoSettimanale.Controllers
+namespace Project.Controllers
 {
     public class HomeController : Controller
     {
@@ -21,6 +21,11 @@ namespace ProgettoSettimanale.Controllers
             return View();
         }
         [Authorize]
+        public IActionResult Welcome()
+        {
+            return View();
+        }
+        [Authorize]
         public IActionResult Management()
         {
             return View();
@@ -32,5 +37,4 @@ namespace ProgettoSettimanale.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-
 }

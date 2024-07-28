@@ -1,4 +1,4 @@
-﻿namespace ProgettoSettimanale.Models.Auth
+﻿namespace Project.Models.Auth
 {
     public class Utente
     {

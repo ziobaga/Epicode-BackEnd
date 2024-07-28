@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Project.Models.Prenotazione>
+
+@{
+    ViewData["Title"] = "Visualizza Prenotazioni";
+}
+
+<h2 class="text-center mb-4">@ViewData["Title"]</h2>
+
+<div class="container">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark">
+                <tr>
+                    <th>ID</th>
+                    <th>Data</th>
+                    <th>Num Progr</th>
+                    <th>Anno</th>
+                    <th>Dal</th>
+                    <th>Al</th>
+                    <th>Tariffa</th>
+                    <th>Caparra</th>
+                    <th>Tipo Pensione</th>
+                    <th>ID Persona</th>
+                    <th>ID Camera</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var prenotazione in Model)
+                {
+                    <tr>
+                        <td>@prenotazione.IdPrenotazione</td>
+                        <td>@prenotazione.DataPrenotazione.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                        <td>@prenotazione.NumProgressivo</td>
+                        <td>@prenotazione.Anno</td>
+                        <td>@prenotazione.SoggiornoDal.ToString("yyyy-MM-dd")</td>
+                        <td>@prenotazione.SoggiornoAl.ToString("yyyy-MM-dd")</td>
+                        <td>@prenotazione.Tariffa.ToString("C")</td>
+                        <td>@prenotazione.Caparra.ToString("C")</td>
+                        <td>@prenotazione.TipoPensione</td>
+                        <td>@prenotazione.IdPersona</td>
+                        <td>@prenotazione.IdCamera</td>
+                        <td>
+                            <a asp-controller="ServiziAgg" asp-action="AddServizio" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btn-primary">Aggiungi Servizi</a>
+                        </td>
+                        <td>
+                            <a asp-controller="Checkout" asp-action="Checkout" asp-route-idPrenotazione="@prenotazione.IdPrenotazione" class="btn btn-success">Vai al Checkout</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="text-center mt-4">
+        <a asp-controller="Home" asp-action="Management" class="btn btn-secondary">Indietro</a>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
