@@ -1,5 +1,11 @@
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 using ProgettoSettimanale.Context;
+using ProgettoSettimanale.Services.Auth;
+using ProgettoSettimanale.Services.Cart;
+using ProgettoSettimanale.Services.Ingredients;
+
+using ProgettoSettimanale.Services.Products;
 
 
 
@@ -17,6 +23,22 @@ namespace ProgettoSettimanale
             var conn = builder.Configuration.GetConnectionString("AuthDb");
             builder.Services.AddDbContext<DataContext>(opt => opt.UseSqlServer(conn));
 
+            //AUTH
+            builder.Services
+                .AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(options =>
+                {
+                    options.LoginPath = "/Auth/Register";
+                });
+
+            //SERVIZI
+            builder.Services
+                .AddScoped<IAuthService, AuthService>()
+                .AddScoped<IIngredientService, IngredientService>()
+                .AddScoped<IProductService, ProductService>()
+                .AddScoped<ICartService, CartService>();
+
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -32,6 +54,7 @@ namespace ProgettoSettimanale
 
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapControllerRoute(

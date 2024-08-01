@@ -12,7 +12,7 @@ namespace ProgettoSettimanale.Models
         [StringLength(20)]
         public required string Name { get; set; }
 
-        // Riferimenti EF
+        
         public List<User> Users { get; set; } = new List<User>();
     }
 }

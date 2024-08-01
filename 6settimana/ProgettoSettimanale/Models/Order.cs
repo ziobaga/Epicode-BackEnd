@@ -28,7 +28,7 @@ namespace ProgettoSettimanale.Models
         public int IdUser { get; set; }
 
         [ForeignKey("IdUser")]
-        public required User User { get; set; }
+        public  User User { get; set; }
 
         public List<OrderedProduct> OrderedProducts { get; set; } = new List<OrderedProduct>();
 

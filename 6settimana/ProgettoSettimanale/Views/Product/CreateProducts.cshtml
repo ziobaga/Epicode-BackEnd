@@ -1,0 +1,42 @@
+﻿@model ProgettoSettimanale.Models.ViewModels.ProductCreateVM;
+
+<form asp-action="CreateProduct" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label asp-for="Product.Name"></label>
+        <input asp-for="Product.Name" class="form-control" />
+        <span asp-validation-for="Product.Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Product.Price"></label>
+        <input asp-for="Product.Price" class="form-control" />
+        <span asp-validation-for="Product.Price" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label for="Image">Image</label>
+        <input type="file" name="Image" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Product.DeliveryTimeMin"></label>
+        <input asp-for="Product.DeliveryTimeMin" class="form-control" />
+        <span asp-validation-for="Product.DeliveryTimeMin" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label>Ingredients</label>
+        <div>
+            @for (int i = 0; i < Model.Ingredients.Count; i++)
+            {
+                <div>
+                    <input type="checkbox"
+                           name="SelectedIngredientIds"
+                           value="@Model.Ingredients[i].IdIngredient"
+                    @(Model.SelectedIngredientIds.Contains(Model.Ingredients[i].IdIngredient) ? "checked" : "") />
+                    <label>@Model.Ingredients[i].Name</label>
+                </div>
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Create Product</button>
+</form>

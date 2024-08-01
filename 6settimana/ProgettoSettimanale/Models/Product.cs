@@ -26,7 +26,6 @@ namespace ProgettoSettimanale.Models
         public int DeliveryTimeMin { get; set; }
 
 
-        // Riferimenti EF
         public List<Ingredient> Ingredients { get; set; } = new List<Ingredient>();
     }
 }

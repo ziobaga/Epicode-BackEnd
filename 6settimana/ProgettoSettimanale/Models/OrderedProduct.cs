@@ -11,7 +11,7 @@ namespace ProgettoSettimanale.Models
         [Required]
         public int Quantity { get; set; }
 
-        // Riferimenti EF
+       
         [Required]
         public int IdOrder { get; set; }
 
