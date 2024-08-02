@@ -1,0 +1,93 @@
+﻿@model List<ProgettoSettimanale.Models.Order>
+
+@{
+    ViewData["Title"] = "Lista Ordini";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>Numero Ordini Processati: <span id="processedOrdersCount"> 0</span></p>
+
+
+<p>Entrate Totali: <span id="totalIncome"> 0</span></p>
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Id Ordine</th>
+            <th>Indirizzo</th>
+            <th>Note Aggiuntive</th>
+            <th>Processato</th>
+            <th>Data Ordine</th>
+            <th>Importo Totale</th>
+            <th>Id Utente</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var order in Model)
+        {
+            <tr>
+                <td>@order.IdOrder</td>
+                <td>@order.Address</td>
+                <td>@order.AdditionalNotes</td>
+                <td>
+                    @if (order.IsProcessed)
+                    {
+                        <span class="badge bg-success">Sì</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger text-dark">No</span>
+                    }
+                </td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+                <td>@order.TotalAmount.ToString("C")</td>
+                <td>@order.IdUser</td>
+                <td>
+                    @if (!order.IsProcessed)
+                    {
+                        <form asp-action="IsProcessed" method="post">
+                            <input type="hidden" name="idOrder" value="@order.IdOrder" />
+                            <button type="submit" class="btn btn-sm btn-success">Processato</button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="IsProcessed" method="post">
+                            <input type="hidden" name="idOrder" value="@order.IdOrder" />
+                            <button class="btn btn-sm btn-danger">Non Processato</button>
+                        </form>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Funzione per aggiornare i conteggi
+            function updateCounts() {
+                $.get('@Url.Action("GetProcessedOrdersCount", "Order")', function (data) {
+                    $('#processedOrdersCount').text(data);
+                });
+
+                $.get('@Url.Action("GetTotalIncome", "Order")', function (data) {
+                    $('#totalIncome').text(data.toFixed(2));
+                });
+            }
+
+            // Aggiorna i conteggi all'avvio della pagina
+            updateCounts();
+
+            // Esegui l'aggiornamento quando la pagina viene ricaricata
+            $(document).on('submit', 'form', function () {
+                setTimeout(updateCounts, 1000); 
+            });
+        });
+    </script>
+}

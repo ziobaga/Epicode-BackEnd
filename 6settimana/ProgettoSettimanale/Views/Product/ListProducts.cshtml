@@ -1,11 +1,18 @@
 ﻿@model List<ProgettoSettimanale.Models.Product>
 
 @{
-    ViewData["Title"] = "Products List";
+    ViewData["Title"] = "Lista Prodotti";
 }
-
+<h1>Lista Prodotti</h1>
 <div class="container mt-5">
-    <h1 class="mb-4 text-center">Products List</h1>
+    
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
 
     <div class="row mb-4">
         <div class="col-md-6">
@@ -19,8 +26,8 @@
                 <tr>
                     <th>Nome</th>
                     <th>Prezzo</th>
-                    <th>Delivery (min)</th>
-                    <th>Img</th>
+                    <th>Tempo di Consegna (min)</th>
+                    <th>Immagine</th>
                     <th>Ingredienti aggiuntivi</th>
                     <th>Quantità</th>
                     <th></th>
@@ -40,7 +47,7 @@
                             }
                             else
                             {
-                                <span>No image</span>
+                                <span>Nessuna immagine</span>
                             }
                         </td>
                         <td>
@@ -55,19 +62,19 @@
                             }
                             else
                             {
-                                <span>No ingredients</span>
+                                <span>Nessun ingrediente</span>
                             }
                         </td>
                         <td>
-                            <input type="number" name="products[@product.IdProduct]" value="1" min="1" />
+                            <input type="number" name="products[@product.IdProduct]" value="0" min="0" />
                         </td>
                     </tr>
                 }
             </tbody>
         </table>
         <div class="col-md-6">
-            <a href="@Url.Action("CreateProducts", "Product")" class="btn btn-success">Create New Product</a>
-            <button type="submit" class="btn btn-primary">Add Selected to Cart</button>
+            <a href="@Url.Action("CreateProducts", "Product")" class="btn btn-success">Crea Nuovo Prodotto</a>
+            <button type="submit" class="btn btn-primary">Aggiungi Selezionati al Carrello</button>
         </div>
     </form>
 </div>

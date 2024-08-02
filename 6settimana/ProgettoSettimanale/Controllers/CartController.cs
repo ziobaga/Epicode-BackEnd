@@ -20,12 +20,15 @@ namespace ProgettoSettimanale.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-       
         public async Task<IActionResult> AddMultipleToCart(Dictionary<int, int> products)
         {
+            // Filtro i prodotti per rimuovere quelli con quantità 0 o minore
+            products = products.Where(p => p.Value > 0).ToDictionary(p => p.Key, p => p.Value);
+
             if (products == null || !products.Any())
             {
-                return BadRequest("Nessun prodotto selezionato.");
+                TempData["ErrorMessage"] = "Nessun prodotto selezionato.";
+                return RedirectToAction("ListProducts", "Product");
             }
 
             await _cartService.AddMultipleToCartAsync(products);

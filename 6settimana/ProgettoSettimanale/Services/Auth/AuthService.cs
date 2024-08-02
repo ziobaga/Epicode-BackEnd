@@ -26,7 +26,7 @@ namespace ProgettoSettimanale.Services.Auth
         public async Task<User> RegisterAsync(User user)
         {
             user.Password = HashPassword(user.Password);
-            var userRole = await _dataContext.Roles.Where(r => r.IdRole == 2).FirstOrDefaultAsync();
+            var userRole = await _dataContext.Roles.Where(r => r.IdRole == 1).FirstOrDefaultAsync();
             user.Roles.Add(userRole);
             await _dataContext.Users.AddAsync(user);
             await _dataContext.SaveChangesAsync();
@@ -40,12 +40,12 @@ namespace ProgettoSettimanale.Services.Auth
 
             var existingUser = await _dataContext.Users
                  .Include(u => u.Roles)
-                 .Where(u => u.Username == user.Username && u.Password == hashedPassword || u.Password == user.Password) //todo: remove u.Password == user.Password 
+                 .Where(u => u.Username == user.Username && u.Password == hashedPassword || u.Password == user.Password) 
                  .FirstOrDefaultAsync();
 
             if (existingUser == null)
             {
-                throw new Exception("Invalid username or password.");
+                throw new Exception("Password invalida o username");
             }
             return existingUser;
         }

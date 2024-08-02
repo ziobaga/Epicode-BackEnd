@@ -4,7 +4,7 @@ using ProgettoSettimanale.Context;
 using ProgettoSettimanale.Services.Auth;
 using ProgettoSettimanale.Services.Cart;
 using ProgettoSettimanale.Services.Ingredients;
-
+using ProgettoSettimanale.Services.Orders;
 using ProgettoSettimanale.Services.Products;
 
 
@@ -36,6 +36,7 @@ namespace ProgettoSettimanale
                 .AddScoped<IAuthService, AuthService>()
                 .AddScoped<IIngredientService, IngredientService>()
                 .AddScoped<IProductService, ProductService>()
+                .AddScoped<IOrderService, OrderService>()
                 .AddScoped<ICartService, CartService>();
 
 
