@@ -6,6 +6,7 @@ using ProgettoSettimanale.Services.Cart;
 using ProgettoSettimanale.Services.Ingredients;
 using ProgettoSettimanale.Services.Orders;
 using ProgettoSettimanale.Services.Products;
+using System.Security.Claims;
 
 
 
@@ -38,6 +39,14 @@ namespace ProgettoSettimanale
                 .AddScoped<IProductService, ProductService>()
                 .AddScoped<IOrderService, OrderService>()
                 .AddScoped<ICartService, CartService>();
+
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("AdminPolicy", policy =>
+                {
+                    policy.RequireClaim(ClaimTypes.Role, "admin");
+                });
+            });
 
 
             var app = builder.Build();

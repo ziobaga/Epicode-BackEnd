@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging; // Aggiungi questa direttiva
 using ProgettoSettimanale.Models;
 using ProgettoSettimanale.Services.Auth;
 using System.Security.Claims;
@@ -10,10 +11,14 @@ namespace ProgettoSettimanale.Controllers
     public class AuthController : Controller
     {
         private readonly IAuthService _authService;
-        public AuthController(IAuthService authService)
+        private readonly ILogger<AuthController> _logger; // Aggiungi il logger
+
+        public AuthController(IAuthService authService, ILogger<AuthController> logger)
         {
             _authService = authService;
+            _logger = logger;
         }
+
         public IActionResult Register()
         {
             return View();
@@ -23,13 +28,31 @@ namespace ProgettoSettimanale.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(User user)
         {
+            if (!ModelState.IsValid)
+            {
+                _logger.LogWarning("Model state is invalid");
+                return View(user);
+            }
+
             try
             {
-                await _authService.RegisterAsync(user);
+                _logger.LogInformation("Attempting to register user");
+                var registeredUser = await _authService.RegisterAsync(user);
+
+                if (registeredUser == null)
+                {
+                    _logger.LogError("User registration failed");
+                    ModelState.AddModelError("", "Registration failed");
+                    return View(user);
+                }
+
+                _logger.LogInformation("User registered successfully");
                 return RedirectToAction("Login", "Auth");
             }
             catch (Exception ex)
             {
+                _logger.LogError(ex, "Exception occurred during registration");
+                ModelState.AddModelError("", "An error occurred during registration");
                 return View(user);
             }
         }
@@ -72,6 +95,7 @@ namespace ProgettoSettimanale.Controllers
             }
             catch (Exception ex)
             {
+                ModelState.AddModelError("", "An error occurred during login");
                 return View(user);
             }
         }
